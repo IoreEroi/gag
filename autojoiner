@@ -1,24 +1,3 @@
--- CONFIG
-local KEYS_URL = "https://raw.githubusercontent.com/IoreEroi/gag/main/keys.txt"
-
--- hash della key che TU hai generato per questo cliente
-local CLIENT_HASH = "3e33252c5ebd41242f306323ea377743f86dbcd3399aa873032cc299498ac524"
-
--- scarica lista hash
-local success, data = pcall(function()
-    return game:HttpGet(KEYS_URL)
-end)
-
-if not success then
-    warn("Errore nel controllo chiavi")
-    return
-end
-
--- controlla se l'hash esiste
-if not data:find(CLIENT_HASH, 1, true) then
-    warn("Key not valid or revoked")
-    return
-end
 local tp = game:GetService("TeleportService")
 local plrs = game:GetService("Players")
 local cg = game:GetService("CoreGui")
